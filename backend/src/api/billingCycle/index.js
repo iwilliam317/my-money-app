@@ -31,3 +31,10 @@ const debitSchema = new mongoose.Schema({
         }
     }
 })
+
+const BillingCycleSchema = new mongoose.Schema({
+    debit: debitSchema,
+    credit: creditSchema
+})
+
+module.exports = restful.model('BillingCycle', BillingCycleSchema)
