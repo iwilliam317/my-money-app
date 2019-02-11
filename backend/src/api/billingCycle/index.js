@@ -33,8 +33,22 @@ const debitSchema = new mongoose.Schema({
 })
 
 const BillingCycleSchema = new mongoose.Schema({
-    debit: debitSchema,
-    credit: creditSchema
+    name: { 
+        type: 'String',
+        required: true
+    },
+    month : {
+        type: Number,
+        min: 1,
+        max: 12,
+        required: true
+    },
+    year: {
+        type: Number,
+        required: true
+    },
+    debit: [debitSchema],
+    credit: [creditSchema]
 })
 
 module.exports = restful.model('BillingCycle', BillingCycleSchema)
