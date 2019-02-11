@@ -1,4 +1,4 @@
-require('../../config/database')
+require('../../../config/database')
 
 const restful = require('node-restful')
 const mongoose = restful.mongoose
