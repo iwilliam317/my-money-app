@@ -1,11 +1,11 @@
-version: "1"
+version: "2"
 services:
   api:
-    container_name: api
+    container_name: my-money-api
     restart: always
     build: .
     ports:
-      - "3000:3000"
+      - "3003:3003"
     links:
       - mongo
   mongo:
