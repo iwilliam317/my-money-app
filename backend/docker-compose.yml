@@ -1,7 +1,7 @@
 version: "2"
 services:
   api:
-    container_name: my-money-api
+    container_name: mymoney-api
     restart: always
     build: .
     ports:
