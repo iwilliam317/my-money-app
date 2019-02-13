@@ -6,5 +6,5 @@ module.exports = app => {
     // node-restful
     const billingCycleService = require('../api/v1/controllers/billingCycleService')
     // register routes [GET, PUT, POST, DELETE]
-    billingCycleService.register(router, '/billingCycles')
+    billingCycleService.register(router, '/billing-cycles')
 }

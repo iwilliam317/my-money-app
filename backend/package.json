@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node src/app.js",
+    "start": "nodemon src/app.js",
     "dev": "nodemon src/app",
     "prod": "pm2 start src/app.js --name my-money-app",
     "test": "echo \"Error: no test specified\" && exit 1"
