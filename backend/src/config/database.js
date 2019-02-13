@@ -7,3 +7,4 @@ mongoose.connect(url, (error, response) => {
   else console.log (`Succeeded connected to: ${url}`);
 })
 
+//mongoose.Error.messages.general.required = "O atributo '{PATH}' é obrigatório"
