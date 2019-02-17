@@ -3,7 +3,7 @@ const BillingCycle = require('../models/billingCycle')
 BillingCycle.methods(['get', 'post', 'put', 'delete'])
 BillingCycle.updateOptions({new: true, runValidators: true})
 
-BillingCycle.route('count', (req, res) => {
+BillingCycle.route('count', (req, res, next) => {
     BillingCycle.count((error, value) => {
         if (error) 
             return res.status(500).json({ errors: [error]})
@@ -12,4 +12,14 @@ BillingCycle.route('count', (req, res) => {
     })
 })
 
+BillingCycle.route('summary', (req, res, next) => {
+    BillingCycle.aggregate([
+        { $project: { _id: 0, month: 1} },
+
+    ]).exec((error, result) => {
+        if(error)
+            return res.status(500).json({ errors: [error]})
+        res.send({ result })
+    })
+})
 module.exports = BillingCycle
