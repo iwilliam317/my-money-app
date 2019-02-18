@@ -15,7 +15,7 @@ const creditSchema = new mongoose.Schema({
     }
 })
 
-const debitSchema = new mongoose.Schema({
+const debtSchema = new mongoose.Schema({
     name: {
         type: 'String',
         required: true
@@ -48,7 +48,7 @@ const BillingCycleSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    debits: [debitSchema],
+    debts: [debtSchema],
     credits: [creditSchema]
 })
 
