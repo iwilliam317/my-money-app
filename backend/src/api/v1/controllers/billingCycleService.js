@@ -17,7 +17,7 @@ BillingCycle.route('summary', (req, res, next) => {
         { $project: {
             _id: 0,
             credit : { $sum : "$credits.value" },
-            debit: { $sum : "$debits.value" }
+            debit: { $sum : "$debts.value" }
         } },
     ]).exec((error, result) => {
         if(error)
