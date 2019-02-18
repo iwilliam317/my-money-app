@@ -15,11 +15,11 @@ BillingCycle.route('count', (req, res, next) => {
 BillingCycle.route('summary', (req, res, next) => {
     BillingCycle.aggregate([
         { $project: { _id: 0, month: 1} },
-
     ]).exec((error, result) => {
         if(error)
             return res.status(500).json({ errors: [error]})
         res.send({ result })
     })
 })
+
 module.exports = BillingCycle

@@ -48,8 +48,8 @@ const BillingCycleSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    debit: [debitSchema],
-    credit: [creditSchema]
+    debits: [debitSchema],
+    credits: [creditSchema]
 })
 
 const BillingCycle = restful.model('BillingCycle', BillingCycleSchema)
