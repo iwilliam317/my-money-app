@@ -1,4 +1,5 @@
 const BillingCycle = require('../models/billingCycle')
+const errorHandler = require('../middlewares/errorHandler')
 
 BillingCycle.methods(['get', 'post', 'put', 'delete'])
 BillingCycle.updateOptions({new: true, runValidators: true})
@@ -43,5 +44,7 @@ BillingCycle.route('summary', (req, res, next) => {
         res.send(result[0] || { credit : 0 , debit : 0} )
     })
 })
+
+BillingCycle.after('post', errorHandler);
 
 module.exports = BillingCycle

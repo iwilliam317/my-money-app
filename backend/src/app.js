@@ -16,6 +16,6 @@ app.use(bodyParser.urlencoded({ extended : true}))
 
 app.use(morgan('combined', { stream: accessLogStream }))
 
-app.use(errorHandler)
+//  app.use(errorHandler)
 
 require('./config/routes')(app)
