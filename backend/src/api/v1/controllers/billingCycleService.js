@@ -45,6 +45,7 @@ BillingCycle.route('summary', (req, res, next) => {
     })
 })
 
-BillingCycle.after('post', errorHandler);
+// Applies middleware using node-restful
+BillingCycle.after('post', errorHandler).after('put', errorHandler)
 
 module.exports = BillingCycle
