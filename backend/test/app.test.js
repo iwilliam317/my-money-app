@@ -7,7 +7,7 @@ chai.use(chaiHttp)
 const app = require('../src/app')
 const url = '/api/v1/billing-cycles'
 
-//console.log(`TESTS RUNNING ON ${process.env.NODE_ENV} MODE`)
+console.log(`TESTS RUNNING ON ${process.env.NODE_ENV} MODE`)
 
 describe('api', () => {
     context('#GET /api/v1/billing-cycles', () => {
