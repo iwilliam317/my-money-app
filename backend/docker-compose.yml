@@ -4,6 +4,8 @@ services:
     container_name: mymoney-api
     restart: always
     build: .
+    environment:
+      NODE_ENV: production
     ports:
       - "3003:3003"
     links:
