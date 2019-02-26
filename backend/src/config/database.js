@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
+const config = require('./environment')
 
-const url = process.env.MONGOLAB_URI_MY_MONEY || 'mongodb://localhost:27017/mymoney' || 'mongodb://mongo:27017/mymoney'
+const url = config.mongodbURL
 
 mongoose.connect(url, (error, response) => {
   if (error) console.log (`ERROR connecting to:  ${url} -  ${error}`);
