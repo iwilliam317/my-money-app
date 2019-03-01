@@ -4,12 +4,12 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 module.exports = {
     entry: './src/index.jsx',
     output: {
-        path: __dirname +'/public',
+        path: __dirname + '/public',
         filename: './app.js'
     },
     devServer: {
         port: 8080,
-        contentBase: './public'
+        contentBase: './public',
     },
     resolve: {
         extensions: ['', '.js', '.jsx'],
@@ -19,14 +19,15 @@ module.exports = {
             bootstrap: 'modules/admin-lte/bootstrap/js/bootstrap.js'
         }
     },
-    plugins: [
+    plugins: [ 
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',
-            'window.jQuery' : 'jquery'
-        }), new ExtractTextPlugin('app.css')
+            'window.jQuery': 'jquery'
+        }),
+        new ExtractTextPlugin('app.css')
     ],
-    modules : {
+    module: {
         loaders: [{
             test: /.js[x]?$/,
             loader: 'babel-loader',
