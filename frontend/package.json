@@ -1,9 +1,11 @@
 {
-  "name": "frontend",
+  "name": "my-money-appfrontend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "webpack-dev-server --progress --hot --inline --colors",
+    "prod": "webpack --progress -p",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
