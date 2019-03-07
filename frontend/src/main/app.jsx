@@ -1,16 +1,12 @@
 import '../common/template/dependencies'
-import React, { Component } from 'react'
+import React from 'react'
 
 import Header from '../common/template/header'
+import Sidebar from '../common/template/sidebar'
 
-class App extends Component {
-    render(){
-        return (
-            <div>
-                <Header />
-            </div>
-        )
-    }
-}
-
-export default App
+export default props => (
+    <div>
+        <Header />
+        <Sidebar />
+    </div>
+)
