@@ -1,9 +1,8 @@
 import React from 'react'
+import MenuItem from './menuItem'
 
 export default props => (
-    <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
+    <ul className='sidebar-menu'>
+        <MenuItem icon='dashboard' path='#' label='dashboard' />
     </ul>
 )
