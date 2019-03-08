@@ -3,7 +3,21 @@ import React, { Component } from 'react'
 import ContentHeader from '../../common/template/contentHeader'
 import Content from '../../common/template/content'
 
+import axios from 'axios'
+
 class Dashboard extends Component {
+    getCredit(){
+        const api = axios.create({ baseURL: 'http://localhost:3003/api/v1/billing-cycles'})
+        api.get('/summary').then(res => {
+            const { credit, debit} = res.data
+            console.log(credit, debit)
+        })
+
+    }
+
+    componentDidMount(){
+        this.getCredit()
+    }
     render(){
         return (
             <div>
