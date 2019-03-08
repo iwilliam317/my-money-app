@@ -5,9 +5,9 @@ import Dashboard from '../dashboard'
 import BillingCycle from '../billingCycle'
 
 export default props => (
-    <Router history={ hashHistory }>
-        <Route path='/' component={ Dashboard } />
-        <Route path='/billingCycles' component={ BillingCycle } />
+    <Router history={ hashHistory}>
+        <Route path='/' component={ Dashboard }/>
+        <Route path='/billing-cycles' component={ BillingCycle }/>
         <Redirect from='*' to='/' />
     </Router>
 )
