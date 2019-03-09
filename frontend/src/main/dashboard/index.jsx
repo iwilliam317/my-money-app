@@ -12,18 +12,18 @@ class Dashboard extends Component {
         this.state = { credit: 0, debit: 0}
     }
 
-    getCredit(){
+    getSummary(){
         api.get('/summary').then(res => {
             const { credit, debit} = res.data || 0
-            console.log(credit, debit)
             this.setState({ credit, debit})
         })
 
     }
 
     componentDidMount(){
-        this.getCredit()
+        this.getSummary()
     }
+
     render(){
         return (
             <div>
