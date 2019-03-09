@@ -1,6 +1,7 @@
 import React from 'react'
 
 const toCssClasses = numbers => {
+    console.log(numbers)
     const cols = numbers ? numbers.split(' ') : []
     let classes = ''
 
