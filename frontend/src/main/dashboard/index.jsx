@@ -7,33 +7,22 @@ import Row from '../../common/layout/row'
 
 import api from '../../services/api'
 
+import { connect } from 'react-redux'
+
 class Dashboard extends Component {
-    constructor(props){
-        super(props)
-        this.state = { credit: 0, debit: 0}
-    }
-
-    getSummary(){
-        api.get('/summary').then(res => {
-            const { credit, debit } = res.data || 0
-            this.setState({ credit, debit})
-        })
-
-    }
-
-    componentDidMount(){
-        this.getSummary()
-    }
 
     render(){
+        
+        const { credit, debit } = this.props
+
         return (
             <div>
                 <ContentHeader title='Dashboard' small='version 1.0' />
                 <Content>
                     <Row>
-                        <ValueBox value={ `R$ ${this.state.credit}` } color='green' cols='12 4' text='Total Credit' icon='bank' />
-                        <ValueBox value={ `R$ ${this.state.debit}` } color='red' cols='12 4' text='Total Debit'  icon='credit-card'/>
-                        <ValueBox value={ `R$ ${this.state.credit - this.state.debit}` } color='blue' cols='12 4' text='Balance' icon='money'/>
+                        <ValueBox value={ `R$ ${credit}` } color='green' cols='12 4' text='Total Credit' icon='bank' />
+                        <ValueBox value={ `R$ ${debit}` } color='red' cols='12 4' text='Total Debit'  icon='credit-card'/>
+                        <ValueBox value={ `R$ ${credit - debit}` } color='blue' cols='12 4' text='Balance' icon='money'/>
                     </Row>
                    
                 </Content>
@@ -42,4 +31,6 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard
+const mapStateToProps = state => ( { credit : state.dashboard.credit, debit: state.dashboard.debit })
+
+export default connect(mapStateToProps)(Dashboard)
