@@ -29,9 +29,9 @@ class Dashboard extends Component {
             <div>
                 <ContentHeader title='Dashboard' small='version 1.0' />
                 <Content>
-                    <ValueBox value={ this.state.credit } color='green' cols='4' text='Credit'/>
-                    <ValueBox value={ this.state.debit } color='red' cols='4' text='Debit'/>
-                    <ValueBox value={ this.state.credit - this.state.debit } color='blue' cols='4' text='Remaining'/>
+                    <ValueBox value={ this.state.credit } color='green' cols='12 4' text='Credit' icon='bank' />
+                    <ValueBox value={ this.state.debit } color='red' cols='12 4' text='Debit'  icon='credit-card'/>
+                    <ValueBox value={ this.state.credit - this.state.debit } color='blue' cols='12 4' text='Balance' icon='money'/>
                    
                 </Content>
             </div>

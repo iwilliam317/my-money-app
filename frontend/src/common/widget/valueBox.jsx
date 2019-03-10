@@ -6,10 +6,10 @@ export default props => (
         <div className={ `small-box bg-${ props.color }` } >
             <div className='inner'>
                 <h3>{ props.value }</h3>
-                { props.text }
+                <p>{ props.text }</p>
             </div>
             <div className='icon'>
-                <i className='fa fa-${ props.icon }'></i>
+                <i className={ `fa fa-${ props.icon }` }></i>
             </div>
         </div>
     </Grid>
