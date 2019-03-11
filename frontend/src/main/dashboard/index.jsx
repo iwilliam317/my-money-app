@@ -12,7 +12,7 @@ import * as actions from '../actions'
 class Dashboard extends Component {
 
     loadSummary(){
-        this.props.getSummary()
+        this.props.getBillingCycleSummary()
     }
 
     componentDidMount(){
