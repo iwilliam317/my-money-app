@@ -1,12 +1,11 @@
 import api from '../../services/api'
 
 const getSummary = () => {
-    const res = api.get('/summary')
-    return ({
-        type: 'GET_SUMMARY',
-        payload: res
-                    
-    })
+    return dispatch => {
+        api.get('/summary')
+        .then(res => {
+            dispatch({ type: 'GET_SUMMARY', payload: res.data })})
+    }
 }
 
 export { getSummary }
