@@ -5,12 +5,19 @@ import Content from '../../common/template/content'
 import ValueBox from '../../common/widget/valueBox'
 import Row from '../../common/layout/row'
 
-import api from '../../services/api'
-
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as actions from '../actions'
 
 class Dashboard extends Component {
 
+    loadSummary(){
+        this.props.getSummary()
+    }
+
+    componentDidMount(){
+        this.loadSummary()
+    }
     render(){
         
         const { credit, debit } = this.props
@@ -32,5 +39,6 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => ( { credit : state.dashboard.credit, debit: state.dashboard.debit })
+const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch)
 
-export default connect(mapStateToProps)(Dashboard)
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
