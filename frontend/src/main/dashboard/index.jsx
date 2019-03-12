@@ -20,7 +20,7 @@ class Dashboard extends Component {
     }
     render(){
         
-        const { credit, debit } = this.props
+        const { credit, debit } = this.props.summary
 
         return (
             <div>
@@ -38,7 +38,7 @@ class Dashboard extends Component {
     }
 }
 
-const mapStateToProps = state => ( { credit : state.dashboard.credit, debit: state.dashboard.debit })
+const mapStateToProps = state => ( { summary: state.dashboard.summary })
 const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
