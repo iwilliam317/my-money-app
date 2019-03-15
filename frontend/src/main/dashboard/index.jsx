@@ -24,7 +24,7 @@ class Dashboard extends Component {
 
         return (
             <div>
-                <ContentHeader title='Dashboard' small='version 1.0' />
+                <ContentHeader title='Dashboard' description='version 1.0' />
                 <Content>
                     <Row>
                         <ValueBox value={ `R$ ${credit}` } color='green' cols='12 4' text='Total Credit' icon='bank' />
