@@ -18,7 +18,7 @@ app.use(queryParser())
 app.use(morgan('combined', { stream: accessLogStream }))
 
 //  app.use(errorHandler)
-
+console.log(process.env.NODE_ENV)
 require('./config/routes')(app)
 
 module.exports = app
