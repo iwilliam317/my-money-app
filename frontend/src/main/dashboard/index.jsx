@@ -7,7 +7,7 @@ import Row from '../../common/layout/row'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as actions from '../actions'
+import * as actions from '../../actions/dashboard'
 
 class Dashboard extends Component {
 
