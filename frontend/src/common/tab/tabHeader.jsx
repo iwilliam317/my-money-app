@@ -6,12 +6,15 @@ import * as actions from '../../actions/tab'
 
 
 class TabHeader extends Component {
+
     render(){
+        const { selectTab, target, icon, label } = this.props
+
         return (
             <li>
-                <a data-toggle='tab' onClick={() => this.props.selectTab(this.props.target)}data-target={ this.props.target }>
-                    <i className={`fa fa-${ this.props.icon }`}></i>
-                    { this.props.label }
+                <a data-toggle='tab' onClick={() => selectTab(target)} data-target={ target }>
+                    <i className={`fa fa-${ icon }`}></i>
+                    { label }
                 </a>
             </li>
         )
