@@ -1,4 +1,4 @@
-const INITIAL_STATE = { selectTab: '2' }
+const INITIAL_STATE = { selectTab: '' }
 
 export default (state = INITIAL_STATE, action) => {
     switch(action.type){

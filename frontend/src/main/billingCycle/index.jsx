@@ -6,6 +6,8 @@ import Tabs from '../../common/tab'
 import TabsHeader from '../../common/tab/tabsHeader'
 import TabsContent from '../../common/tab/tabsContent'
 import TabHeader from '../../common/tab/tabHeader'
+import TabContent from '../../common/tab/tabContent'
+
 
 
 export default props => (
@@ -21,7 +23,9 @@ export default props => (
 
 
                 </TabsHeader>
-                <TabsContent>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi soluta adipisci illo quibusdam inventore rem unde vel sequi dolor laboriosam? Voluptatum veniam aperiam porro doloremque ipsa aut dicta totam corporis?</TabsContent>
+                <TabsContent>
+                    <TabContent></TabContent>
+                </TabsContent>
             </Tabs>
         </Content>
     </div>
