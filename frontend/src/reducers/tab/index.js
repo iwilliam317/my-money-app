@@ -1,4 +1,4 @@
-const INITIAL_STATE = { selectTab: '' }
+const INITIAL_STATE = { selectTab: 'tabList' }
 
 export default (state = INITIAL_STATE, action) => {
     switch(action.type){
