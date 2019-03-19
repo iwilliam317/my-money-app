@@ -24,7 +24,10 @@ export default props => (
 
                 </TabsHeader>
                 <TabsContent>
-                    <TabContent></TabContent>
+                    <TabContent id='tabList'><h1>List</h1></TabContent>
+                    <TabContent id='tabNew'><h1>New</h1></TabContent>
+                    <TabContent id='tabEdit'><h1>Edit</h1></TabContent>
+                    <TabContent id='tabDelete'><h1>Delete</h1></TabContent>
                 </TabsContent>
             </Tabs>
         </Content>

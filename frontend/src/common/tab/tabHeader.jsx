@@ -11,10 +11,7 @@ class TabHeader extends Component {
         const { selectTab, target, icon, label } = this.props
         const { selected } = this.props.tab
 
-        
-
         return (
-
             <li className={ selected === target ?  'active' : '' }>
                 <a data-toggle='tab' onClick={() => selectTab(target)} data-target={ target }>
                     <i className={`fa fa-${ icon }`}></i>

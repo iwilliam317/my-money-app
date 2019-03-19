@@ -3,11 +3,13 @@ import { connect } from 'react-redux'
 
 class TabContent extends Component {
     render(){
-        const { selectTab } = this.props.tab
+
+        const { id } = this.props
+        const { selected } = this.props.tab
+
         return (
-            <div id={this.props.id} className={`tab-pane ${selectTab ? 'active' : ''}`}>
+            <div id={this.props.id} className={`tab-pane ${ id === selected ? 'active' : ''}`}>
                 {this.props.children}
-                { selectTab }
             </div>
         )
     }
