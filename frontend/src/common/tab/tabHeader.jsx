@@ -4,20 +4,24 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as actions from '../../actions/tab'
 
+import If from '../operator/if'
 
 class TabHeader extends Component {
 
     render(){
         const { selectTab, target, icon, label } = this.props
-        const { selected } = this.props.tab
-
+        const { selected, tabsVisible } = this.props.tab
+        const isTabsVisible = tabsVisible[target]
+        
         return (
-            <li className={ selected === target ?  'active' : '' }>
-                <a data-toggle='tab' onClick={() => selectTab(target)} data-target={ target }>
-                    <i className={`fa fa-${ icon }`}></i>
-                    { label }
-                </a>
-            </li>
+            <If test={isTabsVisible}>
+                <li className={ selected === target ?  'active' : '' }>
+                    <a data-toggle='tab' onClick={() => selectTab(target)} data-target={ target }>
+                        <i className={`fa fa-${ icon }`}></i>
+                        { label }
+                    </a>
+                </li>
+            </If>
         )
     }
 }
