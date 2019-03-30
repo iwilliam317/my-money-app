@@ -14,7 +14,8 @@ class List extends Component {
                         <th>Year</th>
                     </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody>
+                </tbody>
             </table>
         )
     }
@@ -22,4 +23,4 @@ class List extends Component {
 const mapDispatchToProps = dispatch => bindActionCreators({listAllBillingCycles}, dispatch)
 const mapStateToProps = state => ({ list : state.billingCycle.list})
 
-export default connect()(List)
+export default connect(mapStateToProps, mapDispatchToProps)(List)
