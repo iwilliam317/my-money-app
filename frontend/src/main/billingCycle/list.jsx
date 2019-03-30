@@ -1,17 +1,25 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { listAllBillingCycles } from '../../actions/billingCycle'
 
 class List extends Component {
     render(){
         return (
-            <table class='table'>
+            <table className='table'>
                 <thead>
-                    <th>Description</th>
-                    <th>Month</th>
-                    <th>Year</th>
+                    <tr>
+                        <th>Description</th>
+                        <th>Month</th>
+                        <th>Year</th>
+                    </tr>
                 </thead>
+                <tbody></tbody>
             </table>
         )
     }
 }
+const mapDispatchToProps = dispatch => bindActionCreators({listAllBillingCycles}, dispatch)
+const mapStateToProps = state => ({ list : state.billingCycle.list})
 
-export default List
+export default connect()(List)
