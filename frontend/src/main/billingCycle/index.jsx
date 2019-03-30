@@ -7,6 +7,7 @@ import TabsHeader from '../../common/tab/tabsHeader'
 import TabsContent from '../../common/tab/tabsContent'
 import TabHeader from '../../common/tab/tabHeader'
 import TabContent from '../../common/tab/tabContent'
+import List from './list'
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -35,7 +36,7 @@ class BillingCycle extends Component {
                             <TabHeader icon='trash-o' label='Delete' target='tabDelete' />
                         </TabsHeader>
                         <TabsContent>
-                            <TabContent id='tabList'><h1>List</h1></TabContent>
+                            <TabContent id='tabList'><h1>List</h1><List /></TabContent>
                             <TabContent id='tabNew'><h1>New</h1></TabContent>
                             <TabContent id='tabEdit'><h1>Edit</h1></TabContent>
                             <TabContent id='tabDelete'><h1>Delete</h1></TabContent>
