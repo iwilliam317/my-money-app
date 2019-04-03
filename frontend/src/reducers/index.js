@@ -3,12 +3,13 @@ import dashboard from './dashboard'
 import tab from './tab'
 import billingCycle from './billingCycle'
 
-import {reducer as formReducer} from 'redux-form'
+import {reducer as form} from 'redux-form'
 
 const reducers = combineReducers({
     dashboard,
     tab,
-    billingCycle
+    billingCycle,
+    form
 })
 
 export default reducers
