@@ -1,10 +1,15 @@
 import React, {Component} from 'react'
+import {reduxForm, Field} from 'redux-form'
 
 class Form extends Component {
     render(){
         return (
-            <form role='form'>
-                <div className='box-body'></div>
+            <form role='form' onSubmit={this.props.handleSubmit}>
+                <div className='box-body'>
+                    <Field name='name' component='input'/>
+                    <Field name='month' component='input'/>
+                    <Field name='year' component='input'/>
+                </div>
                 <div className='box-footer'>
                     <button className="btn btn-primary" type='submit'>Submit</button>
                 </div>
@@ -13,4 +18,4 @@ class Form extends Component {
     }
 }
 
-export default Form
+export default reduxForm({form: 'Form'})(Form)
