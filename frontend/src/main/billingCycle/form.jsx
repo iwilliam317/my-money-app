@@ -3,8 +3,9 @@ import {reduxForm, Field} from 'redux-form'
 
 class Form extends Component {
     render(){
+        const { handleSubmit } = this.props
         return (
-            <form role='form' onSubmit={this.props.handleSubmit}>
+            <form role='form' onSubmit={handleSubmit}>
                 <div className='box-body'>
                     <Field name='name' component='input'/>
                     <Field name='month' component='input'/>

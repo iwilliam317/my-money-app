@@ -8,4 +8,11 @@ const listAllBillingCycles = () => {
     }
 }
 
-export { listAllBillingCycles }
+const createBillingCycle = values => {
+    console.log(values)
+    return {
+        type: 'TEMPORARY'
+    }
+}
+
+export { listAllBillingCycles, createBillingCycle }
