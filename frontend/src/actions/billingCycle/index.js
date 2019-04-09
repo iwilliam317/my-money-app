@@ -9,7 +9,7 @@ const listAllBillingCycles = () => {
 }
 
 const createBillingCycle = values => {
-    console.log(values)
+    api.post('/billing-cycles', values)
     return {
         type: 'TEMPORARY'
     }
