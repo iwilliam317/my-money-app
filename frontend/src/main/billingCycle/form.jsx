@@ -14,6 +14,7 @@ class Form extends Component {
                 <div className='box-footer'>
                     <button className="btn btn-primary" type='submit'>Submit</button>
                 </div>
+               
             </form>
         )
     }
