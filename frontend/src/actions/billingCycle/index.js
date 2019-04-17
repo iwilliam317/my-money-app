@@ -1,6 +1,7 @@
 import api from '../../services/api'
 import { toastr } from 'react-redux-toastr'
-import { reset } from 'redux-form'
+import { reset as resetForm } from 'redux-form'
+import { selectTab, showTabs } from '../../actions/tab'
 
 const listAllBillingCycles = () => {
     const response = api.get('/billing-cycles')
@@ -11,14 +12,22 @@ const listAllBillingCycles = () => {
 }
 
 const createBillingCycle = values => {
-    api.post('/billing-cycles', values)
-        .then(res => toastr.success('Success', 'Billing Cycle created!'))
-        .catch(err => {
-            err.response.data.errors.forEach(e => toastr.error('Error', e))
-        })
-    return {
-        type: 'TEMPORARY'
+    return dispatch => {
+        api.post('/billing-cycles', values)
+            .then(res => {
+                toastr.success('Success', 'Billing Cycle created!')
+                dispatch([
+                    resetForm('billingCycleForm'),
+                    listAllBillingCycles(),
+                    selectTab('tabList'),
+                    showTabs('tabList', 'tabNew')
+                    ])
+            })
+            .catch(err => {
+                err.response.data.errors.forEach(e => toastr.error('Error', e))
+            })
     }
+
 }
 
 export { listAllBillingCycles, createBillingCycle }
