@@ -30,4 +30,10 @@ const createBillingCycle = values => {
 
 }
 
-export { listAllBillingCycles, createBillingCycle }
+const showBillingCycle = billingCycle => {
+    return dispatch => {
+        dispatch([showTabs('tabEdit'), selectTab('tabEdit')])
+    }
+}
+
+export { listAllBillingCycles, createBillingCycle, showBillingCycle }
