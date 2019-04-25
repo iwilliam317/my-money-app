@@ -20,4 +20,4 @@ class Form extends Component {
     }
 }
 
-export default reduxForm({form: 'Form'})(Form)
+export default reduxForm({form: 'Form', destroyOnUnmount: false})(Form)

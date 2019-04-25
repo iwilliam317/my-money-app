@@ -45,7 +45,10 @@ class BillingCycle extends Component {
                                 <h1>New</h1>
                                 <Form onSubmit={createBillingCycle} />
                             </TabContent>
-                            <TabContent id='tabEdit'><h1>Edit</h1></TabContent>
+                            <TabContent id='tabEdit'>
+                                <h1>Edit</h1>
+                                <Form />    
+                            </TabContent>
                             <TabContent id='tabDelete'><h1>Delete</h1></TabContent>
                         </TabsContent>
                     </Tabs>

@@ -1,6 +1,6 @@
 import api from '../../services/api'
 import { toastr } from 'react-redux-toastr'
-import { reset as resetForm } from 'redux-form'
+import { reset as resetForm, initialize } from 'redux-form'
 import { selectTab, showTabs } from '../../actions/tab'
 
 const listAllBillingCycles = () => {
@@ -32,7 +32,9 @@ const createBillingCycle = values => {
 
 const showBillingCycle = billingCycle => {
     return dispatch => {
-        dispatch([showTabs('tabEdit'), selectTab('tabEdit')])
+        dispatch(
+            [showTabs('tabEdit'), selectTab('tabEdit'), initialize('Form', billingCycle)]
+            )
     }
 }
 
