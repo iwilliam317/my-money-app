@@ -3,6 +3,8 @@ import { toastr } from 'react-redux-toastr'
 import { reset as resetForm, initialize } from 'redux-form'
 import { selectTab, showTabs } from '../../actions/tab'
 
+const INITIAL_STATE = {}
+
 const listAllBillingCycles = () => {
     const response = api.get('/billing-cycles')
     return {
@@ -38,4 +40,11 @@ const showBillingCycle = billingCycle => {
     }
 }
 
-export { listAllBillingCycles, createBillingCycle, showBillingCycle }
+const init = () => {
+    return [
+        selectTab('tabList'),
+        showTabs('tabList', 'tabNew')
+    ]
+}
+
+export { listAllBillingCycles, createBillingCycle, showBillingCycle, init }
