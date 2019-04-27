@@ -15,7 +15,7 @@ class List extends Component {
                     <td>{billing.name}</td>
                     <td>{billing.month}</td>
                     <td>{billing.year}</td>
-                    <td><button className='btn btn-warning' onClick={() => this.props.showBillingCycle(billing)}>edit</button></td>
+                    <td><button className='btn btn-warning' onClick={() => this.props.showBillingCycle(billing)}><i className='fa fa-edit'></i></button></td>
                 </tr>
             ))
         )
