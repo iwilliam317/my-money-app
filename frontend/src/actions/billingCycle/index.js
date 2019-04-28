@@ -28,8 +28,10 @@ const createBillingCycle = values => {
 }
 
 const updateBillingCycle = values => {
-    const { _id } = values
     return dispatch => {
+        console.log('ads')
+        const { _id } = values
+
         api.put(`/billing-cycles/${_id}`, values)
             .then(res => {
                 toastr.success('Success', 'Billing Cycle edited!')

@@ -24,7 +24,7 @@ class BillingCycle extends Component {
     }
 
     render(){
-        const {createBillingCycle} = this.props
+        const {createBillingCycle, updateBillingCycle} = this.props
         return (
             <div>
                 <ContentHeader title='Billing Cycles' description='version 1.0' />
@@ -58,6 +58,6 @@ class BillingCycle extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({selectTab, showTabs, createBillingCycle}, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({selectTab, showTabs, createBillingCycle, updateBillingCycle}, dispatch)
 
 export default connect(null, mapDispatchToProps)(BillingCycle)
