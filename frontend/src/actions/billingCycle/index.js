@@ -18,12 +18,7 @@ const createBillingCycle = values => {
         api.post('/billing-cycles', values)
             .then(res => {
                 toastr.success('Success', 'Billing Cycle created!')
-                dispatch([
-                    resetForm('billingCycleForm'),
-                    listAllBillingCycles(),
-                    selectTab('tabList'),
-                    showTabs('tabList', 'tabNew')
-                    ])
+                dispatch(init())
             })
             .catch(err => {
                 err.response.data.errors.forEach(e => toastr.error('Error', e))
@@ -34,15 +29,17 @@ const createBillingCycle = values => {
 
 const updateBillingCycle = values => {
     const { _id } = values
-    console.log(_id)
-    api.put(`/billing-cycles/${_id}`, values)
-        .then(res => {
-            toastr.success('Success', 'Billing Cycle edited!')
-            return init()
-        })
-        .catch(err => {
-            err.response.data.errors.forEach(e => toastr.error('Error', e))
-        })
+    return dispatch => {
+        api.put(`/billing-cycles/${_id}`, values)
+            .then(res => {
+                toastr.success('Success', 'Billing Cycle edited!')
+                dispatch(init())
+            })
+            .catch(err => {
+                err.response.data.errors.forEach(e => toastr.error('Error', e))
+            })
+
+    }
 }
 
 const showBillingCycle = billingCycle => {
@@ -56,7 +53,9 @@ const showBillingCycle = billingCycle => {
 const init = () => {
     return [
         selectTab('tabList'),
-        showTabs('tabList', 'tabNew')
+        showTabs('tabList', 'tabNew'),
+        listAllBillingCycles(),
+        initialize('Form', INITIAL_STATE)
     ]
 }
 
