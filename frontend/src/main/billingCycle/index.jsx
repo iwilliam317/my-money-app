@@ -14,7 +14,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import { selectTab, showTabs } from '../../actions/tab'
-import { createBillingCycle } from '../../actions/billingCycle'
+import { createBillingCycle, updateBillingCycle } from '../../actions/billingCycle'
 
 class BillingCycle extends Component {
     
@@ -47,7 +47,7 @@ class BillingCycle extends Component {
                             </TabContent>
                             <TabContent id='tabEdit'>
                                 <h1>Edit</h1>
-                                <Form />    
+                                <Form onSubmit={updateBillingCycle}/>    
                             </TabContent>
                             <TabContent id='tabDelete'><h1>Delete</h1></TabContent>
                         </TabsContent>

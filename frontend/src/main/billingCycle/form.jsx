@@ -26,5 +26,5 @@ class Form extends Component {
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({init}, dispatch)
-const s = reduxForm({form: 'Form', destroyOnUnmount: false})(Form)
-export default connect(null, mapDispatchToProps)(s)
+Form = reduxForm({form: 'Form', destroyOnUnmount: false})(Form)
+export default connect(null, mapDispatchToProps)(Form)

@@ -32,6 +32,19 @@ const createBillingCycle = values => {
 
 }
 
+const updateBillingCycle = values => {
+    const { _id } = values
+    console.log(_id)
+    api.put(`/billing-cycles/${_id}`, values)
+        .then(res => {
+            toastr.success('Success', 'Billing Cycle edited!')
+            return init()
+        })
+        .catch(err => {
+            err.response.data.errors.forEach(e => toastr.error('Error', e))
+        })
+}
+
 const showBillingCycle = billingCycle => {
     return dispatch => {
         dispatch(
@@ -47,4 +60,4 @@ const init = () => {
     ]
 }
 
-export { listAllBillingCycles, createBillingCycle, showBillingCycle, init }
+export { listAllBillingCycles, createBillingCycle, showBillingCycle, updateBillingCycle, init }
