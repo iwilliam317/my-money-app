@@ -37,14 +37,17 @@ const createBillingCycle = values => {
 const updateBillingCycle = values => {
     return submit(values, 'put')
 }
-
-const showBillingCycle = billingCycle => {
+const remove = values => {
+    return submit(values, 'delete')
+}
+const showForm = (billingCycle, tab) => {
     return dispatch => {
         dispatch(
-            [showTabs('tabEdit'), selectTab('tabEdit'), initialize('Form', billingCycle)]
+            [showTabs(tab), selectTab(tab), initialize('Form', billingCycle)]
             )
     }
 }
+
 
 const init = () => {
     return [
@@ -55,4 +58,4 @@ const init = () => {
     ]
 }
 
-export { listAllBillingCycles, createBillingCycle, showBillingCycle, updateBillingCycle, init }
+export { listAllBillingCycles, createBillingCycle, showForm, updateBillingCycle, remove, init }
