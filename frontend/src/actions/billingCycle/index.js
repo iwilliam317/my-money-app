@@ -13,35 +13,29 @@ const listAllBillingCycles = () => {
     }
 }
 
-const createBillingCycle = values => {
-    return dispatch => {
-        api.post('/billing-cycles', values)
-            .then(res => {
-                toastr.success('Success', 'Billing Cycle created!')
-                dispatch(init())
-            })
-            .catch(err => {
-                err.response.data.errors.forEach(e => toastr.error('Error', e))
-            })
-    }
 
+const submit = (values, method) => {
+    console.log('oi')
+    return dispatch => {
+        const _id = values._id ? values._id : ''
+        
+        api[method](`/billing-cycles/${_id}`, values)
+        .then(res => {
+            toastr.success('Success', 'Operation successfuly')
+            dispatch(init())
+        })
+        .catch(err => {
+            err.response.data.errors.forEach(e => toastr.error('Error', e))
+        })
+        
+    }
 }
-
+const createBillingCycle = values => {
+    console.log('das')
+    return submit(values, 'post')
+}
 const updateBillingCycle = values => {
-    return dispatch => {
-        console.log('ads')
-        const { _id } = values
-
-        api.put(`/billing-cycles/${_id}`, values)
-            .then(res => {
-                toastr.success('Success', 'Billing Cycle edited!')
-                dispatch(init())
-            })
-            .catch(err => {
-                err.response.data.errors.forEach(e => toastr.error('Error', e))
-            })
-
-    }
+    return submit(values, 'put')
 }
 
 const showBillingCycle = billingCycle => {
