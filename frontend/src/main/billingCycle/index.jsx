@@ -14,7 +14,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import { selectTab, showTabs } from '../../actions/tab'
-import { createBillingCycle, updateBillingCycle, remove } from '../../actions/billingCycle'
+import { create, update, remove } from '../../actions/billingCycle'
 
 class BillingCycle extends Component {
     
@@ -24,7 +24,7 @@ class BillingCycle extends Component {
     }
 
     render(){
-        const {createBillingCycle, updateBillingCycle, remove} = this.props
+        const {create, update, remove} = this.props
         return (
             <div>
                 <ContentHeader title='Billing Cycles' description='version 1.0' />
@@ -43,11 +43,11 @@ class BillingCycle extends Component {
                             </TabContent>
                             <TabContent id='tabNew'>
                                 <h1>New</h1>
-                                <Form onSubmit={createBillingCycle} />
+                                <Form onSubmit={create} />
                             </TabContent>
                             <TabContent id='tabEdit'>
                                 <h1>Edit</h1>
-                                <Form onSubmit={updateBillingCycle}/>    
+                                <Form onSubmit={update}/>    
                             </TabContent>
                             <TabContent id='tabDelete'>
                                 <h1>Delete</h1>
@@ -61,6 +61,6 @@ class BillingCycle extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({selectTab, showTabs, createBillingCycle, updateBillingCycle, remove}, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({selectTab, showTabs, create, update, remove}, dispatch)
 
 export default connect(null, mapDispatchToProps)(BillingCycle)
