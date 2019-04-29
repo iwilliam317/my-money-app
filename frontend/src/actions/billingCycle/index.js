@@ -30,11 +30,10 @@ const submit = (values, method) => {
         
     }
 }
-const createBillingCycle = values => {
-    console.log('das')
+const create = values => {
     return submit(values, 'post')
 }
-const updateBillingCycle = values => {
+const update = values => {
     return submit(values, 'put')
 }
 const remove = values => {
@@ -58,4 +57,4 @@ const init = () => {
     ]
 }
 
-export { listAllBillingCycles, createBillingCycle, showForm, updateBillingCycle, remove, init }
+export { listAllBillingCycles, create, showForm, update, remove, init }

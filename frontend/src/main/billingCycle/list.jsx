@@ -9,13 +9,14 @@ class List extends Component {
         this.props.listAllBillingCycles()
     }
     renderRows(){
+        const {showForm, list} = this.props
         return (
-            this.props.list.map(billing => (
+            list.map(billing => (
                 <tr key={billing._id}>
                     <td>{billing.name}</td>
                     <td>{billing.month}</td>
                     <td>{billing.year}</td>
-                    <td><button className='btn btn-warning' onClick={() => this.props.showForm(billing, 'tabEdit')}><i className='fa fa-edit'></i></button><button className='btn btn-danger' onClick={() => this.props.showForm(billing, 'tabDelete')}><i className='fa fa-trash-o'></i></button></td>
+                    <td><button className='btn btn-warning' onClick={() => showForm(billing, 'tabEdit')}><i className='fa fa-edit'></i></button><button className='btn btn-danger' onClick={() => showForm(billing, 'tabDelete')}><i className='fa fa-trash-o'></i></button></td>
                 </tr>
             ))
         )
