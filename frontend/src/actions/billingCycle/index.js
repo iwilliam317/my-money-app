@@ -5,7 +5,7 @@ import { selectTab, showTabs } from '../../actions/tab'
 
 const INITIAL_STATE = {}
 
-const listAllBillingCycles = () => {
+const getAll = () => {
     const response = api.get('/billing-cycles')
     return {
         type: 'LIST_BILLING_CYCLES',
@@ -15,7 +15,6 @@ const listAllBillingCycles = () => {
 
 
 const submit = (values, method) => {
-    console.log('oi')
     return dispatch => {
         const _id = values._id ? values._id : ''
         
@@ -52,9 +51,9 @@ const init = () => {
     return [
         selectTab('tabList'),
         showTabs('tabList', 'tabNew'),
-        listAllBillingCycles(),
+        getAll(),
         initialize('Form', INITIAL_STATE)
     ]
 }
 
-export { listAllBillingCycles, create, showForm, update, remove, init }
+export { getAll, create, showForm, update, remove, init }

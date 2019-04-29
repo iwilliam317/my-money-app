@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { listAllBillingCycles, showForm } from '../../actions/billingCycle'
+import { getAll, showForm } from '../../actions/billingCycle'
 
 class List extends Component {
 
     componentDidMount(){
-        this.props.listAllBillingCycles()
+        const {getAll} = this.props
+        getAll()
     }
     renderRows(){
         const {showForm, list} = this.props
@@ -40,7 +41,7 @@ class List extends Component {
         )
     }
 }
-const mapDispatchToProps = dispatch => bindActionCreators({listAllBillingCycles, showForm}, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({getAll, showForm}, dispatch)
 const mapStateToProps = state => ({ list : state.billingCycle.list})
 
 export default connect(mapStateToProps, mapDispatchToProps)(List)
