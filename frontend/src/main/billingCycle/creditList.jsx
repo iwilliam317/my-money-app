@@ -1,16 +1,18 @@
 import React, {Component} from 'react'
+import Grid from '../../common/layout/grid'
+
 // import {Field} from 'redux-form'
 
 class CreditList extends Component {
     render(){
         return (
-            <div className='col-lg-6 col-xs-12'>
+            <Grid cols='12 6'>
                 <fieldset>
                     <legend>Credits</legend>
                     {/* <Field name=''/>
                     <Field name=''/> */}
                 </fieldset>
-            </div>
+            </Grid>
         )
     }
 }

@@ -4,7 +4,7 @@ import {reduxForm, Field} from 'redux-form'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import {init} from '../../actions/billingCycle'
-// import CreditList from './creditList'
+import CreditList from './creditList'
 
 class Form extends Component {
 
@@ -27,8 +27,8 @@ class Form extends Component {
                     <Field name='name' component='input' placeholder='E.g. Shopping' readOnly={readOnly}/>
                     <Field name='month' component='input' placeholder='E.g. 09' readOnly={readOnly}/>
                     <Field name='year' component='input' placeholder='E.g. 2019' readOnly={readOnly}/>
+                    <CreditList />
                 </div>
-               {/* <CreditList /> */}
                 <div className='box-footer'>
                     <button className={`btn btn-${color}`} type='submit'>{text}</button>
                     <button className='btn btn-default' type='button' onClick={this.props.init}>Cancel</button>
