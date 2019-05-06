@@ -9,7 +9,7 @@ class CreditList extends Component {
             <Grid cols='12 6'>
                 <fieldset>
                     <legend>Credits</legend>
-                    <table>
+                    <table className='table'>
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -19,8 +19,8 @@ class CreditList extends Component {
                         </thead>
                         <tbody>
                             <tr>
-                                {/* <td><Field name='credits[0][0].description' component='input'/></td> */}
-                                {/* <td><Field name='credits[0][0].value' component='input'/></td> */}
+                                <td><Field name='credits[0].description' component='input'/></td>
+                                <td><Field name='credits[0].value' component='input'/></td>
                             </tr>
                         </tbody>
                     </table>
