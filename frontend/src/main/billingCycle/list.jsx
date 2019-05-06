@@ -31,7 +31,7 @@ class List extends Component {
                         <th>Description</th>
                         <th>Month</th>
                         <th>Year</th>
-                        <th></th>
+                        <th className='table-actions'></th>
                     </tr>
                 </thead>
                 <tbody>
