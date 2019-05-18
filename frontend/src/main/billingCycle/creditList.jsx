@@ -1,13 +1,11 @@
 import React, {Component} from 'react'
-import Grid from '../../common/layout/grid'
-
 import {Field} from 'redux-form'
 
 class CreditList extends Component {
     render(){
         const list = this.props.list || []
         return (
-            <Grid cols='12 6'>
+            <div>
                 <fieldset>
                     <legend>Credits</legend>
                     <table className='table'>
@@ -27,10 +25,8 @@ class CreditList extends Component {
                             ))}
                         </tbody>
                     </table>
-                    
-                    
                 </fieldset>
-            </Grid>
+            </div>
         )
     }
 }
