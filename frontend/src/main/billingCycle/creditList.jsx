@@ -5,6 +5,7 @@ import {Field} from 'redux-form'
 
 class CreditList extends Component {
     render(){
+        const list = this.props.list || []
         return (
             <Grid cols='12 6'>
                 <fieldset>
@@ -18,10 +19,12 @@ class CreditList extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td><Field name='credits[0].name' component='input'/></td>
-                                <td><Field name='credits[0].value' component='input'/></td>
-                            </tr>
+                            {list.map((element, index) => (
+                                <tr key={index}>
+                                    <td><Field name={`credits[${index}].name`} component='input'/></td>
+                                    <td><Field name={`credits[${index}].value`} component='input'/></td>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
                     
