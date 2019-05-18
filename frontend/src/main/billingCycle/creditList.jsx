@@ -19,7 +19,7 @@ class CreditList extends Component {
                         </thead>
                         <tbody>
                             <tr>
-                                <td><Field name='credits[0].description' component='input'/></td>
+                                <td><Field name='credits[0].name' component='input'/></td>
                                 <td><Field name='credits[0].value' component='input'/></td>
                             </tr>
                         </tbody>

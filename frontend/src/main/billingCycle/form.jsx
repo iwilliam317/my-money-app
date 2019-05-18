@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {reduxForm, Field} from 'redux-form'
+import {reduxForm, Field, formValueSelector } from 'redux-form'
 
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
@@ -19,7 +19,7 @@ class Form extends Component {
         }
     }
     render(){
-        const { type, handleSubmit, readOnly } = this.props
+        const { type, handleSubmit, readOnly, credits } = this.props
         const {color, text} = this.buttonType(type)
         return (
             <form role='form' onSubmit={handleSubmit}>
@@ -27,7 +27,7 @@ class Form extends Component {
                     <Field name='name' component='input' placeholder='E.g. Shopping' readOnly={readOnly}/>
                     <Field name='month' component='input' placeholder='E.g. 09' readOnly={readOnly}/>
                     <Field name='year' component='input' placeholder='E.g. 2019' readOnly={readOnly}/>
-                    <CreditList />
+                    <CreditList list={credits} />
                 </div>
                 <div className='box-footer'>
                     <button className={`btn btn-${color}`} type='submit'>{text}</button>
@@ -38,6 +38,8 @@ class Form extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({init}, dispatch)
 Form = reduxForm({form: 'Form', destroyOnUnmount: false})(Form)
-export default connect(null, mapDispatchToProps)(Form)
+const selector = formValueSelector('Form')
+const mapDispatchToProps = dispatch => bindActionCreators({init}, dispatch)
+const mapStateToProps = state => ({credits: selector(state, 'credits')}) 
+export default connect(mapStateToProps, mapDispatchToProps)(Form)
