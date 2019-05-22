@@ -2,6 +2,10 @@ import React, {Component} from 'react'
 import {Field} from 'redux-form'
 
 class CreditList extends Component {
+
+    add(index, object={}){
+        console.log(index+1)
+    }
     render(){
         const list = this.props.list || []
         return (
@@ -21,6 +25,7 @@ class CreditList extends Component {
                                 <tr key={index}>
                                     <td><Field name={`credits[${index}].name`} component='input'/></td>
                                     <td><Field name={`credits[${index}].value`} component='input'/></td>
+                                    <td><button type='button' className='btn btn-success' onClick={()=> this.add(index, element)}><i className="fa fa-plus"></i></button></td>
                                 </tr>
                             ))}
                         </tbody>
