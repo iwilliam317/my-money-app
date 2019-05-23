@@ -27,7 +27,7 @@ class Form extends Component {
                     <Field name='name' component='input' placeholder='E.g. Shopping' readOnly={readOnly}/>
                     <Field name='month' component='input' placeholder='E.g. 09' readOnly={readOnly}/>
                     <Field name='year' component='input' placeholder='E.g. 2019' readOnly={readOnly}/>
-                    <CreditList list={credits} />
+                    <CreditList list={credits} readOnly={readOnly} />
                 </div>
                 <div className='box-footer'>
                     <button className={`btn btn-${color}`} type='submit'>{text}</button>
