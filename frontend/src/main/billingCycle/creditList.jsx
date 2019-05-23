@@ -1,10 +1,13 @@
 import React, {Component} from 'react'
-import {Field} from 'redux-form'
+import {Field, arrayInsert} from 'redux-form'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
 
 class CreditList extends Component {
 
     add(index, item={}){
         if(!this.props.readOnly){
+            this.props.arrayInsert('Form', 'credits', index, item)
             console.log(index, item)
         }
     }
@@ -37,5 +40,5 @@ class CreditList extends Component {
         )
     }
 }
-
-export default CreditList
+const mapDispatchToProps = dispatch => bindActionCreators({arrayInsert}, dispatch)
+export default connect(null, mapDispatchToProps)(CreditList)
