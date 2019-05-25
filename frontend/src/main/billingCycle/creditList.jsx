@@ -13,8 +13,10 @@ class CreditList extends Component {
     }
 
     remove(index){
-        const {arrayRemove} = this.props
-        arrayRemove('Form', 'credits', index)
+        const {arrayRemove, list} = this.props
+        if(list.length > 1){
+            arrayRemove('Form', 'credits', index)
+        }
     }
     render(){
         const list = this.props.list || []
