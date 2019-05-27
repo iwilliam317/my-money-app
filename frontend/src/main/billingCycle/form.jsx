@@ -19,19 +19,25 @@ class Form extends Component {
         }
     }
     render(){
-        const { type, handleSubmit, readOnly, credits, debts } = this.props
+        const { type, handleSubmit, readOnly, credits, debts, init } = this.props
         const {color, text} = this.buttonType(type)
         return (
             <form role='form' onSubmit={handleSubmit}>
-                <div className='box-body'>
-                    <Field name='name' component='input' placeholder='E.g. Shopping' readOnly={readOnly}/>
-                    <Field name='month' component='input' placeholder='E.g. 09' readOnly={readOnly}/>
-                    <Field name='year' component='input' placeholder='E.g. 2019' readOnly={readOnly}/>
-                    <ItemList list={credits} readOnly={readOnly} legend='Debits' field='debts' />
+                    <div className='box-body'>
+                    <div className='row'>
+                        <Field name='name' component='input' placeholder='E.g. Shopping' readOnly={readOnly}/>
+                        <Field name='month' component='input' placeholder='E.g. 09' readOnly={readOnly}/>
+                        <Field name='year' component='input' placeholder='E.g. 2019' readOnly={readOnly}/>
+                    </div>
+                    <br/>
+                    <div className='row'>
+                        <ItemList list={credits} readOnly={readOnly} legend='Credits' field='credits' cols='12 6'/>
+                        <ItemList list={debts} readOnly={readOnly} legend='Debts' field='debts' cols='12 6' />
+                    </div>
                 </div>
                 <div className='box-footer'>
                     <button className={`btn btn-${color}`} type='submit'>{text}</button>
-                    <button className='btn btn-default' type='button' onClick={this.props.init}>Cancel</button>
+                    <button className='btn btn-default' type='button' onClick={init}>Cancel</button>
                 </div>
             </form>
         )

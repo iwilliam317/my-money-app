@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Field, arrayInsert, arrayRemove} from 'redux-form'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
+import Grid from '../../common/layout/grid'
 
 class CreditList extends Component {
 
@@ -20,9 +21,9 @@ class CreditList extends Component {
     }
     render(){
         const list = this.props.list || []
-        const {legend, field} = this.props
+        const {legend, field, cols} = this.props
         return (
-            <div>
+            <Grid cols={cols}>
                 <fieldset>
                     <legend>{legend}</legend>
                     <table className='table'>
@@ -48,7 +49,7 @@ class CreditList extends Component {
                         </tbody>
                     </table>
                 </fieldset>
-            </div>
+            </Grid>
         )
     }
 }
