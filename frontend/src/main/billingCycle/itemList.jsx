@@ -6,24 +6,25 @@ import {bindActionCreators} from 'redux'
 class CreditList extends Component {
 
     add(index, item={}){
-        const {readOnly, arrayInsert} = this.props
+        const {readOnly, arrayInsert, field} = this.props
         if(!readOnly){
-            arrayInsert('Form', 'credits', index, item)
+            arrayInsert('Form', `${field}`, index, item)
         }
     }
 
     remove(index){
-        const {arrayRemove, list} = this.props
+        const {arrayRemove, list, field} = this.props
         if(list.length > 1){
-            arrayRemove('Form', 'credits', index)
+            arrayRemove('Form', `${field}`, index)
         }
     }
     render(){
         const list = this.props.list || []
+        const {legend, field} = this.props
         return (
             <div>
                 <fieldset>
-                    <legend>Credits</legend>
+                    <legend>{legend}</legend>
                     <table className='table'>
                         <thead>
                             <tr>
@@ -35,8 +36,8 @@ class CreditList extends Component {
                         <tbody>
                             {list.map((element, index) => (
                                 <tr key={index}>
-                                    <td><Field name={`credits[${index}].name`} component='input'/></td>
-                                    <td><Field name={`credits[${index}].value`} component='input'/></td>
+                                    <td><Field name={`${field}[${index}].name`} component='input'/></td>
+                                    <td><Field name={`${field}[${index}].value`} component='input'/></td>
                                     <td>
                                         <button type='button' className='btn btn-success' onClick={()=> this.add(index+1)}><i className="fa fa-plus"></i></button>
                                         <button type='button' className='btn btn-warning' onClick={()=> this.add(index+1, element)}><i className='fa fa-clone'></i></button>
