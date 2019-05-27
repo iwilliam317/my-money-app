@@ -19,7 +19,7 @@ class Form extends Component {
         }
     }
     render(){
-        const { type, handleSubmit, readOnly, credits } = this.props
+        const { type, handleSubmit, readOnly, credits, debts } = this.props
         const {color, text} = this.buttonType(type)
         return (
             <form role='form' onSubmit={handleSubmit}>
@@ -27,7 +27,7 @@ class Form extends Component {
                     <Field name='name' component='input' placeholder='E.g. Shopping' readOnly={readOnly}/>
                     <Field name='month' component='input' placeholder='E.g. 09' readOnly={readOnly}/>
                     <Field name='year' component='input' placeholder='E.g. 2019' readOnly={readOnly}/>
-                    <ItemList list={credits} readOnly={readOnly} legend='Credits' field='credits' />
+                    <ItemList list={credits} readOnly={readOnly} legend='Debits' field='debts' />
                 </div>
                 <div className='box-footer'>
                     <button className={`btn btn-${color}`} type='submit'>{text}</button>
@@ -41,5 +41,5 @@ class Form extends Component {
 Form = reduxForm({form: 'Form', destroyOnUnmount: false})(Form)
 const selector = formValueSelector('Form')
 const mapDispatchToProps = dispatch => bindActionCreators({init}, dispatch)
-const mapStateToProps = state => ({credits: selector(state, 'credits')}) 
+const mapStateToProps = state => ({credits: selector(state, 'credits'), debts: selector(state, 'debts')}) 
 export default connect(mapStateToProps, mapDispatchToProps)(Form)
