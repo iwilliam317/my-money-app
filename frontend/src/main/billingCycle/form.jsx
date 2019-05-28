@@ -6,6 +6,10 @@ import {connect} from 'react-redux'
 import {init} from '../../actions/billingCycle'
 import ItemList from './itemList'
 
+import Content from '../../common/template/content'
+import ValueBox from '../../common/widget/valueBox'
+import Row from '../../common/layout/row'
+
 class Form extends Component {
 
     buttonType(type){
@@ -18,6 +22,15 @@ class Form extends Component {
                 return { color: 'success', text: 'Submit'}
         }
     }
+
+    
+    sumSummary(){
+        const sum = (a, b) => a + b
+        const numbers = [5, 10, 25]
+        const debts = this.props.debts || [0]
+        return debts.map(d => d.value || 0).reduce(sum)
+    }
+
     render(){
         const { type, handleSubmit, readOnly, credits, debts, init } = this.props
         const {color, text} = this.buttonType(type)
@@ -31,6 +44,14 @@ class Form extends Component {
                     </div>
                     <br/>
                     <div className='row'>
+                        <h1>{this.sumSummary()}</h1>
+                        <Content>
+                            <Row>
+                                <ValueBox value={ `R$ 500` } color='green' cols='12 4' text='Total Debit'  icon='credit-card'/>
+                                <ValueBox value={ `R$ 300` } color='red' cols='12 4' text='Total Credit' icon='bank' />
+                                <ValueBox value={ `R$ 200` } color='blue' cols='12 4' text='Balance' icon='money'/>
+                            </Row>
+                        </Content>
                         <ItemList list={credits} readOnly={readOnly} legend='Credits' field='credits' cols='12 6'/>
                         <ItemList list={debts} readOnly={readOnly} legend='Debts' field='debts' cols='12 6' />
                     </div>

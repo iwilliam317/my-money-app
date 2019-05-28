@@ -3,9 +3,6 @@ import {Field, arrayInsert, arrayRemove} from 'redux-form'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import Grid from '../../common/layout/grid'
-import Content from '../../common/template/content'
-import ValueBox from '../../common/widget/valueBox'
-import Row from '../../common/layout/row'
 
 class CreditList extends Component {
 
@@ -26,15 +23,6 @@ class CreditList extends Component {
         const list = this.props.list || []
         const {legend, field, cols} = this.props
         return (
-            <div>
-                <Content>
-                    <Row>
-                        <ValueBox value={ `R$ 500` } color='green' cols='12 4' text='Total Debit'  icon='credit-card'/>
-                        <ValueBox value={ `R$ 300` } color='red' cols='12 4' text='Total Credit' icon='bank' />
-                        <ValueBox value={ `R$ 200` } color='blue' cols='12 4' text='Balance' icon='money'/>
-                    </Row>
-               
-                </Content>
                 <Grid cols={cols}>
                     <fieldset>
                         <legend>{legend}</legend>
@@ -62,7 +50,6 @@ class CreditList extends Component {
                         </table>
                     </fieldset>
                 </Grid>
-            </div>
         )
     }
 }
